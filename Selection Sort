@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void Tempo(int argc, char *argv[])
+{
+	float tempo;
+	time_t t_ini, t_fim;
+	
+	int i, j;
+	
+	t_ini = time(NULL);
+	
+	for (i=0; i<50000; i++)
+	{
+		for (j=0; j<50000; j++);
+	}
+	
+	t_fim = time (NULL);
+	
+	tempo = difftime (t_fim, t_ini);
+	
+	printf("\nTempo: %f\n", tempo);
+	
+}
+
+
+void selectionSort(int v[10], int n) // Para vetor com 10 posições v[10], para vetor com 100 posições v[100], e assim por diante...
+{
+	int i, j, aux, min;
+	
+	for(i = 0; i < n-1; i++) {
+		
+		min = i;
+		
+		for(j = i+1; j < n; j++) {
+		
+			if(v[j] < v[min]) {
+		
+			min = j;
+			}
+		}
+	
+		aux = v[i]; v[i] = v[min]; v[min] = aux; //troca
+	}
+	
+}
+
+int main(){
+	
+	int v[10], n, i;
+	float tempo;
+	
+	printf("Entre tamanho desejado do vetor: ");
+	scanf("%d", &n);
+	printf("Entre os %d elementos do vetor:\n", n);
+	
+	for(i = 0; i < n; i++) {
+		scanf("%d", &v[i]);
+}
+
+	selectionSort(v, n);
+	printf("\n\nVetor ordenado:\n");
+	
+		for(i = 0; i < n; i++) {
+		printf("%d\t", v[i]);
+	}
+		
+	printf("\n\nTempo: %f\n", tempo);
+	
+	printf("\n");
+	return 0;
+}
